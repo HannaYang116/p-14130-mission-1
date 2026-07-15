@@ -1,5 +1,6 @@
 plugins {
     kotlin("jvm") version "2.3.10"
+    application
 }
 
 group = "com"
@@ -15,6 +16,14 @@ dependencies {
 
 kotlin {
     jvmToolchain(25)
+}
+
+application {
+    mainClass.set("com.MainKt")
+}
+
+tasks.named<JavaExec>("run") {
+    standardInput = System.`in`
 }
 
 tasks.test {
